@@ -3,7 +3,6 @@
 ## Getting Started
 
 1. Clone the repository.
-2. Checkout to `master` branch
 3. Install dependencies: `npm install`.
 4. Start the development server: `npm run dev`.
 
