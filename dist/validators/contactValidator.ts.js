@@ -9,6 +9,10 @@ function validateContactData(req, res, next) {
     if (!email.trim() || !phoneNumber.trim()) {
         return res.status(400).json({ error: 'Both email and phoneNumber are mandatory' });
     }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return res.status(400).json({ error: 'Invalid email format' });
+    }
     next();
 }
 exports.validateContactData = validateContactData;
