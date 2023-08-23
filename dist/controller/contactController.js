@@ -94,10 +94,12 @@ async function identifyAndProcessContact(connection, email, phoneNumber, res) {
         };
         const contactId = await insertNewContact(connection, newContact);
         return res.status(200).json({
-            primaryContactId: contactId,
-            emails: [newContact.email],
-            phoneNumbers: [newContact.phoneNumber],
-            secondaryContactIds: [],
+            contact: {
+                primaryContactId: contactId,
+                emails: [newContact.email],
+                phoneNumbers: [newContact.phoneNumber],
+                secondaryContactIds: [],
+            }
         });
     }
     // Handle duplicate and conflict cases
